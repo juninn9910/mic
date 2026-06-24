@@ -21,17 +21,14 @@
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body {
     margin: 0; padding: 0; min-height: 100%;
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--ink); color: var(--paper);
     font-family: "Space Mono", ui-monospace, monospace;
     overscroll-behavior: none; touch-action: manipulation;
   }
-  /* 하프톤 + 대각 스트라이프 배경 */
   body::before {
     content: ""; position: fixed; inset: 0; z-index: -2;
     background-image: radial-gradient(circle, rgba(31,43,255,0.55) 1.2px, transparent 1.3px);
-    background-size: 9px 9px;
-    opacity: 0.7;
+    background-size: 9px 9px; opacity: 0.7;
   }
   body::after {
     content: ""; position: fixed; inset: 0; z-index: -1;
@@ -43,18 +40,14 @@
     gap: 14px; max-width: 480px; margin: 0 auto;
   }
 
-  /* ── 헤더 / 그래피티 타이틀 ── */
   .head { width: 100%; position: relative; }
   .logo-tag {
-    display: inline-block; font-family: "Space Mono"; font-weight: 700;
-    font-size: 11px; letter-spacing: 2px; color: var(--ink);
-    background: var(--yellow); padding: 3px 8px; transform: rotate(-3deg);
+    display: inline-block; font-weight: 700; font-size: 11px; letter-spacing: 2px;
+    color: var(--ink); background: var(--yellow); padding: 3px 8px; transform: rotate(-3deg);
   }
   h1 {
-    font-family: "Anton", sans-serif; font-weight: 400;
-    font-size: 18vw; line-height: 0.82; margin: 6px 0 0;
-    letter-spacing: -0.02em; font-style: italic;
-    color: var(--yellow);
+    font-family: "Anton", sans-serif; font-size: 18vw; line-height: 0.82; margin: 6px 0 0;
+    letter-spacing: -0.02em; font-style: italic; color: var(--yellow);
     -webkit-text-stroke: 2px var(--ink);
     text-shadow: 5px 5px 0 var(--blue), 7px 7px 0 var(--ink);
     text-transform: uppercase;
@@ -62,66 +55,55 @@
   @media (min-width: 480px) { h1 { font-size: 86px; } }
   .slogan {
     font-family: "Archivo", sans-serif; font-style: italic; font-weight: 900;
-    font-size: 16px; letter-spacing: -0.01em; margin: 8px 0 0;
-    color: var(--paper); text-transform: uppercase;
+    font-size: 16px; margin: 8px 0 0; color: var(--paper); text-transform: uppercase;
   }
   .slogan .strike { color: #6b6f86; text-decoration: line-through; text-decoration-color: var(--red); text-decoration-thickness: 3px; }
   .slogan .hl { color: var(--yellow); }
-
-  /* 반복 텍스트 데코 */
   .repeat { position: absolute; top: 4px; right: 0; text-align: right; font-size: 12px; line-height: 1.3; color: var(--blue); font-weight: 700; opacity: 0.85; }
 
-  /* ── 라벨 박스 (모노 바운딩박스) ── */
   .label-box {
     position: relative; border: 2px solid var(--blue);
-    padding: 10px 12px 12px; margin-top: 2px; width: 100%;
+    padding: 12px 12px; margin-top: 2px; width: 100%;
     background: rgba(10,14,94,0.25);
   }
   .label-box > .tag {
-    position: absolute; top: -10px; left: 10px;
-    background: var(--blue); color: #fff; font-size: 10px; font-weight: 700;
-    letter-spacing: 1px; padding: 1px 7px; text-transform: uppercase;
+    position: absolute; top: -10px; left: 10px; background: var(--blue); color: #fff;
+    font-size: 10px; font-weight: 700; letter-spacing: 1px; padding: 1px 7px; text-transform: uppercase;
   }
   .label-box.yellow { border-color: var(--yellow); background: rgba(255,212,0,0.06); }
   .label-box.yellow > .tag { background: var(--yellow); color: var(--ink); }
 
-  /* ── 상태 / 미터 ── */
   .status { font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #9aa0bf; }
   .status.live { color: var(--yellow); font-weight: 700; }
   .meter { width: 100%; height: 14px; background: #11142a; border: 2px solid var(--blue); margin-top: 8px; overflow: hidden; }
   .meter > i { display: block; height: 100%; width: 0%; background: repeating-linear-gradient(90deg, var(--yellow) 0 6px, var(--ink) 6px 8px); transition: width 0.06s linear; }
 
-  /* ── PTT 버튼 ── */
   .ptt {
-    position: relative; width: 100%; min-height: 200px;
-    border: 3px solid var(--ink); border-radius: 0;
-    background: var(--blue); color: #fff;
-    font-family: "Anton", sans-serif; font-style: italic;
-    font-size: 40px; letter-spacing: 0.01em; text-transform: uppercase;
+    position: relative; width: 100%; min-height: 180px;
+    border: 3px solid var(--ink); background: var(--blue); color: #fff;
+    font-family: "Anton", sans-serif; font-style: italic; font-size: 38px;
+    text-transform: uppercase;
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
     user-select: none; -webkit-user-select: none; cursor: pointer;
     box-shadow: 8px 8px 0 var(--blue-d);
     transition: background 0.08s, transform 0.06s, box-shadow 0.06s, color 0.08s;
     overflow: hidden;
   }
-  .ptt .mic { font-size: 54px; line-height: 1; filter: grayscale(1) contrast(1.4); }
+  .ptt .mic { font-size: 50px; line-height: 1; filter: grayscale(1) contrast(1.4); }
   .ptt .hint { font-family: "Space Mono"; font-style: normal; font-size: 11px; letter-spacing: 1px; color: rgba(255,255,255,0.7); text-transform: uppercase; }
-  .ptt.live {
-    background: var(--yellow); color: var(--ink);
+  .ptt.live { background: var(--yellow); color: var(--ink);
     box-shadow: 0 0 0 4px var(--red), 14px 14px 0 var(--blue-d), 0 0 60px rgba(255,212,0,0.5);
-    transform: translate(2px,2px);
-  }
+    transform: translate(2px,2px); }
   .ptt.live .hint { color: rgba(5,6,10,0.65); }
   .ptt.live .mic { filter: none; }
-  /* 번개 데코 */
-  .bolt { position: absolute; bottom: 6px; right: 10px; width: 34px; opacity: 0.85; }
+  .bolt { position: absolute; bottom: 6px; right: 10px; width: 32px; opacity: 0.85; }
   .ptt.live .bolt path { fill: var(--ink); }
 
-  /* ── 컨트롤 ── */
-  .row { display: flex; flex-direction: column; gap: 8px; }
+  .row { display: flex; flex-direction: column; gap: 6px; }
+  .row + .row { margin-top: 12px; }
   .row .label { display: flex; justify-content: space-between; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #9aa0bf; }
   .row .label b { color: var(--yellow); font-weight: 700; font-size: 15px; }
-  input[type=range] { width: 100%; accent-color: var(--yellow); height: 30px; }
+  input[type=range] { width: 100%; accent-color: var(--yellow); height: 28px; }
   .toggle { display: flex; align-items: center; justify-content: space-between; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #cfd3ea; }
   .switch { position: relative; width: 54px; height: 30px; flex: none; }
   .switch input { opacity: 0; width: 0; height: 0; }
@@ -161,25 +143,45 @@
   <div class="label-box yellow">
     <span class="tag">GAIN</span>
     <div class="row">
-      <div class="label"><span>증폭 배율 / amplify</span><b id="gainVal">3.0×</b></div>
-      <input type="range" id="gain" min="1" max="10" step="0.5" value="3" />
+      <div class="label"><span>증폭 배율 / amplify</span><b id="gainVal">8×</b></div>
+      <input type="range" id="gain" min="1" max="20" step="1" value="8" />
+    </div>
+  </div>
+
+  <div class="label-box">
+    <span class="tag">FX</span>
+    <div class="toggle">
+      <span>리버브 / reverb</span>
+      <label class="switch"><input type="checkbox" id="revOn" /><span class="slider"></span></label>
+    </div>
+    <div class="row" style="margin-top:8px">
+      <div class="label"><span>리버브 양 / amount</span><b id="revVal">50%</b></div>
+      <input type="range" id="reverb" min="0" max="100" step="1" value="50" />
+    </div>
+    <div class="toggle" style="margin-top:14px">
+      <span>에코·딜레이 / echo</span>
+      <label class="switch"><input type="checkbox" id="echoOn" /><span class="slider"></span></label>
+    </div>
+    <div class="row" style="margin-top:8px">
+      <div class="label"><span>에코 양 / amount</span><b id="echoFxVal">50%</b></div>
+      <input type="range" id="echofx" min="0" max="100" step="1" value="50" />
     </div>
   </div>
 
   <div class="label-box">
     <span class="tag">ANTI-HOWL</span>
     <div class="toggle">
-      <span>하울링 억제 (echo cancel)</span>
-      <label class="switch"><input type="checkbox" id="echo" checked /><span class="slider"></span></label>
+      <span>하울링 억제 (켜면 소리 작아짐)</span>
+      <label class="switch"><input type="checkbox" id="echo" /><span class="slider"></span></label>
     </div>
   </div>
 
   <div class="footer">
-    <span class="vertag">v1.0 — 24.06.2026</span>
-    <span class="vertag">★ AUDIO / LIVE</span>
+    <span class="vertag">v1.1 — 24.06.2026</span>
+    <span class="vertag">★ AUDIO / LIVE / FX</span>
   </div>
 
-  <div class="note">마이크 권한을 <b>허용</b>해야 작동합니다. 같은 폰 스피커로 크게 틀면 <b>하울링(삐~)</b>이 날 수 있어요 — 배율을 낮추거나 ANTI-HOWL을 켜세요(변경 후 새로고침).</div>
+  <div class="note">마이크 권한 <b>허용</b> 필수. 같은 폰 스피커로 크게 + 리버브/에코를 올리면 <b>하울링(삐~)</b>이 쉽게 납니다 — 가능하면 <b>유선 외부 스피커</b> 사용을 권장합니다.</div>
 
 <script>
 (function () {
@@ -188,10 +190,17 @@
   var pttLabel = document.getElementById('pttLabel');
   var gainSlider = document.getElementById('gain');
   var gainVal = document.getElementById('gainVal');
-  var echoToggle = document.getElementById('echo');
+  var revSlider = document.getElementById('reverb');
+  var revVal = document.getElementById('revVal');
+  var revOn = document.getElementById('revOn');
+  var echoSlider = document.getElementById('echofx');
+  var echoFxVal = document.getElementById('echoFxVal');
+  var echoOn = document.getElementById('echoOn');
+  var echoCancelToggle = document.getElementById('echo');
   var meterBar = document.getElementById('meterBar');
 
-  var ctx = null, source = null, gainNode = null, analyser = null, stream = null;
+  var ctx = null, source = null, stream = null;
+  var preGain, dry, delay, fb, echoWet, conv, revWet, limiter, analyser;
   var live = false, ready = false, initializing = false;
   var meterData = null, rafId = null;
 
@@ -200,25 +209,61 @@
     statusEl.classList.toggle('live', !!isLive);
   }
 
+  // 합성 임펄스 응답(리버브용)
+  function makeReverbIR(seconds, decay) {
+    var rate = ctx.sampleRate, len = Math.floor(rate * seconds);
+    var buf = ctx.createBuffer(2, len, rate);
+    for (var ch = 0; ch < 2; ch++) {
+      var d = buf.getChannelData(ch);
+      for (var i = 0; i < len; i++) {
+        d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay);
+      }
+    }
+    return buf;
+  }
+
   async function init() {
     if (ready || initializing) return;
     initializing = true;
     setStatus('마이크 준비 중…');
     try {
-      var useEcho = echoToggle.checked;
+      var useCancel = echoCancelToggle.checked;
       stream = await navigator.mediaDevices.getUserMedia({
-        audio: { echoCancellation: useEcho, noiseSuppression: false, autoGainControl: false },
+        audio: { echoCancellation: useCancel, noiseSuppression: false, autoGainControl: false },
         video: false
       });
       ctx = new (window.AudioContext || window.webkitAudioContext)();
       source = ctx.createMediaStreamSource(stream);
-      gainNode = ctx.createGain();
-      gainNode.gain.value = parseFloat(gainSlider.value);
-      analyser = ctx.createAnalyser();
-      analyser.fftSize = 512;
+
+      preGain = ctx.createGain();
+      preGain.gain.value = parseFloat(gainSlider.value);
+
+      dry = ctx.createGain();      dry.gain.value = 1;
+
+      // 에코(딜레이) + 피드백
+      delay = ctx.createDelay(1.0); delay.delayTime.value = 0.28;
+      fb = ctx.createGain();        fb.gain.value = 0.35;
+      echoWet = ctx.createGain();   echoWet.gain.value = 0;
+
+      // 리버브
+      conv = ctx.createConvolver(); conv.buffer = makeReverbIR(2.6, 2.2);
+      revWet = ctx.createGain();    revWet.gain.value = 0;
+
+      // 최종 리미터(과한 클리핑/찢어짐 방지하며 음량 최대화)
+      limiter = ctx.createDynamicsCompressor();
+      limiter.threshold.value = -6; limiter.knee.value = 0;
+      limiter.ratio.value = 20; limiter.attack.value = 0.002; limiter.release.value = 0.12;
+
+      analyser = ctx.createAnalyser(); analyser.fftSize = 512;
       meterData = new Uint8Array(analyser.fftSize);
-      source.connect(gainNode);
-      gainNode.connect(analyser);
+
+      // 라우팅
+      source.connect(preGain);
+      preGain.connect(dry);   dry.connect(limiter);
+      preGain.connect(delay); delay.connect(fb); fb.connect(delay); delay.connect(echoWet); echoWet.connect(limiter);
+      preGain.connect(conv);  conv.connect(revWet); revWet.connect(limiter);
+      limiter.connect(analyser);
+
       ready = true;
       setStatus('준비 완료 — 누르고 말하세요');
       startMeter();
@@ -238,9 +283,7 @@
           if (v > peak) peak = v;
         }
         meterBar.style.width = Math.min(100, (peak / 128) * 140) + '%';
-      } else {
-        meterBar.style.width = '0%';
-      }
+      } else { meterBar.style.width = '0%'; }
       rafId = requestAnimationFrame(loop);
     }
     if (!rafId) loop();
@@ -251,7 +294,7 @@
     if (!ready) return;
     if (ctx.state === 'suspended') { try { await ctx.resume(); } catch (e) {} }
     if (!live) {
-      gainNode.connect(ctx.destination);
+      limiter.connect(ctx.destination);
       live = true;
       ptt.classList.add('live');
       pttLabel.textContent = 'ON AIR';
@@ -260,8 +303,8 @@
   }
 
   function stopLive() {
-    if (live && gainNode) {
-      try { gainNode.disconnect(ctx.destination); } catch (e) {}
+    if (live && limiter) {
+      try { limiter.disconnect(ctx.destination); } catch (e) {}
       live = false;
       ptt.classList.remove('live');
       pttLabel.textContent = 'PUSH TO TALK';
@@ -280,11 +323,27 @@
 
   gainSlider.addEventListener('input', function () {
     var v = parseFloat(gainSlider.value);
-    gainVal.textContent = v.toFixed(1) + '×';
-    if (gainNode) gainNode.gain.value = v;
+    gainVal.textContent = v + '×';
+    if (preGain) preGain.gain.value = v;
   });
+  function applyReverb() {
+    if (revWet) revWet.gain.value = revOn.checked ? parseFloat(revSlider.value) / 100 : 0;
+  }
+  function applyEcho() {
+    if (echoWet) echoWet.gain.value = echoOn.checked ? parseFloat(echoSlider.value) / 100 : 0;
+  }
+  revSlider.addEventListener('input', function () {
+    revVal.textContent = parseFloat(revSlider.value) + '%';
+    applyReverb();
+  });
+  echoSlider.addEventListener('input', function () {
+    echoFxVal.textContent = parseFloat(echoSlider.value) + '%';
+    applyEcho();
+  });
+  revOn.addEventListener('change', applyReverb);
+  echoOn.addEventListener('change', applyEcho);
 
-  echoToggle.addEventListener('change', function () {
+  echoCancelToggle.addEventListener('change', function () {
     if (ready) setStatus('적용하려면 새로고침 하세요');
   });
 })();
